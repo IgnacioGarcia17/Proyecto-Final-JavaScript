@@ -1,32 +1,105 @@
 
-let puntosPepe = 0;
-let puntosJavier = 0;
+let tipo = prompt("Ingresa el tipo de prenda");
+let estilo = prompt("Ingresa el estilo de la prenda");
+let minimo = Number(prompt("Ingresar Precio Minimo"));
+let maximo = Number(prompt("Ingresar Precio Maximo"));
+let talle = prompt("Ingresar el talle");
+let color = prompt("Ingresar Color de la prenda");
+let material = prompt("Ingresar material de la prenda");
 
-let tiro = 0;
+const datosBusqueda = {
+  tipo: tipo,
+  estilo: estilo,
+  minimo: minimo,
+  maximo: maximo,
+  talle: talle,
+  color: color,
+  material: material,
+};
 
-const MINIMO_PUNTOS = 0;
-const MAXIMO_PUNTOS = 100;
-
-while (puntosPepe < 100 && puntosJavier < 100) {
-    tiro += 1;
-    let tiroPepe = Math.ceil(Math.random() * (MAXIMO_PUNTOS - MINIMO_PUNTOS) + MINIMO_PUNTOS);
-    let tiroJavier = Math.ceil(Math.random() * (MAXIMO_PUNTOS - MINIMO_PUNTOS) + MINIMO_PUNTOS);
-
-    console.log("--------------Tiro " + tiro + "--------------");
-    console.log("Pepe suma: " + tiroPepe + " puntos");
-    console.log("Javier suma: " + tiroJavier + " puntos");
-
-    puntosPepe += tiroPepe;
-    puntosJavier += tiroJavier;
-
-    console.log("Puntos de Pepe: " + puntosPepe);
-    console.log("Puntos de Javier: " + puntosJavier);
+function mostrarPrendas(prendas) {
+  prendas.forEach((prenda) => {
+    let respuesta = document.querySelector("ul");
+    respuesta.innerHTML += `
+          <li>${prenda.tipo}  -  ${prenda.estilo}  -  Talle ${prenda.talle}  -  Material ${prenda.material}  -  Precio $${prenda.precio}  -  Color ${prenda.color}</li>
+    `;
+    console.log(`
+          ${prenda.tipo}  -  ${prenda.estilo}  -  Talle ${prenda.talle}  -  Material ${prenda.material}  -  Precio $${prenda.precio}  -  Color ${prenda.color}
+    `);
+  });
 }
 
-console.log("--------------GANADOR-------------");
-
-if (puntosPepe >= puntosJavier) {
-    console.log("Gano Pepe");
-} else {
-    console.log("Gano Javier");
+function filtrarTipo(prenda) {
+  if (datosBusqueda.tipo) {
+    return prenda.tipo === datosBusqueda.tipo;
+  } else {
+    return prenda;
+  }
 }
+
+function filtrarEstilo(prenda) {
+  if (datosBusqueda.estilo) {
+    return prenda.estilo === datosBusqueda.estilo;
+  } else {
+    return prenda;
+  }
+}
+
+function filtrarMinimo(prenda) {
+  if (datosBusqueda.minimo) {
+    return prenda.precio >= datosBusqueda.minimo;
+  } else {
+    return prenda;
+  }
+}
+
+function filtrarMaximo(prenda) {
+  if (datosBusqueda.maximo) {
+    return prenda.precio <= datosBusqueda.maximo;
+  } else {
+    return prenda;
+  }
+}
+
+function filtrarTalle(prenda) {
+  if (datosBusqueda.talle) {
+    return prenda.talle === datosBusqueda.talle;
+  } else {
+    return prenda;
+  }
+}
+
+function filtrarMaterial(prenda) {
+  if (datosBusqueda.material) {
+    return prenda.material === datosBusqueda.material;
+  } else {
+    return prenda;
+  }
+}
+
+function filtrarColor(prenda) {
+  if (datosBusqueda.color) {
+    return prenda.color === datosBusqueda.color;
+  } else {
+    return prenda;
+  }
+}
+
+function filtrarPrendas() {
+  const resultado = prendas
+    .filter(filtrarTipo)
+    .filter(filtrarEstilo)
+    .filter(filtrarMinimo)
+    .filter(filtrarMaximo)
+    .filter(filtrarTalle)
+    .filter(filtrarMaterial)
+    .filter(filtrarColor);
+
+  if (resultado.length > 0) {
+    mostrarPrendas(resultado);
+  } else {
+    alert("No se encontraron prendas con esas caracteristicas");
+  }
+}
+
+filtrarPrendas();
