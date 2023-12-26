@@ -1,0 +1,96 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+#lista-tareas {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#tarea, #agregar-tarea, #borrar-todo {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#tarea {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#agregar-tarea, #borrar-todo {
+    cursor: pointer;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+#borrar-todo {
+    cursor: pointer;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.eliminar {
+    color: #f44336;
+    cursor: pointer;
+}
+
+
+ul {
+    margin-top: 10px;
+}
+
+li:hover {
+    background-color: #f9f9f9;
+}
+
+li:last-child {
+    border-bottom: none;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 767px) {
+    #lista-tareas {
+        margin: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #tarea, #agregar-tarea, #borrar-todo {
+        width: 100%;
+    }
+}
+

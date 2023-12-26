@@ -4,14 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preentrega 2</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Lista de Tareas</title>
 </head>
 
 <body>
-    <ul></ul>
 
-    <script src="variables.js"></script>
-    <script src="main.js"></script>
+    <header>
+        <h1>Lista de Tareas</h1>
+    </header>
+
+    <div id="lista-tareas">
+        <div>
+            <input type="text" id="tarea" placeholder="Nueva tarea">
+            <button id="agregar-tarea">Agregar tarea</button>
+            <button id="borrar-todo">Eliminar todas las tareas</button>
+        </div>
+        <ul id="lista"></ul>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 
 </html>
