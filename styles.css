@@ -1,96 +1,66 @@
+
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1em 0;
-}
-
-#lista-tareas {
-    max-width: 600px;
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-#tarea, #agregar-tarea, #borrar-todo {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-}
-
-#tarea {
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-#agregar-tarea, #borrar-todo {
-    cursor: pointer;
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-}
-
-#borrar-todo {
-    cursor: pointer;
-    background-color: #f44336;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-li {
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
-.eliminar {
-    color: #f44336;
+.calculator {
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 250px;
+}
+
+#display {
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+button {
+    border: none;
+    padding: 10px;
+    font-size: 16px;
     cursor: pointer;
+    background-color: #f0f0f0;
+}
+
+button:hover {
+    background-color: #ddd;
 }
 
 
-ul {
-    margin-top: 10px;
-}
-
-li:hover {
-    background-color: #f9f9f9;
-}
-
-li:last-child {
-    border-bottom: none;
-}
-
-/* Media Queries */
-
-@media only screen and (max-width: 767px) {
-    #lista-tareas {
-        margin: 10px;
+@media only screen and (min-width: 600px) {
+    .calculator {
+        width: 400px;
     }
 }
 
-@media only screen and (max-width: 480px) {
-    #tarea, #agregar-tarea, #borrar-todo {
-        width: 100%;
+@media only screen and (min-width: 768px) {
+    .calculator {
+        width: 500px;
     }
 }
 
+@media only screen and (min-width: 992px) {
+    .calculator {
+        width: 600px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .calculator {
+        width: 700px;
+    }
+}
